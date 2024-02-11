@@ -15,13 +15,11 @@ const Home = () => {
 
   return (
     <div>
-      <p className="text-center my-8 text-3xl">User List Interface</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 my-6">
-        {
-          users.map(user =>
-            <UserCard key={user.id}></UserCard>
-          )
-        }
+      <p className="text-center mt-7 mb-5 text-3xl">User List Interface</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 mb-6">
+        {users.map((user) => (
+          <UserCard key={user.id}></UserCard>
+        ))}
       </div>
     </div>
   );
