@@ -16,3 +16,4 @@ Mentionable Features includes-
 - ReactJS
 - TailwindCSS
 - React Router
+- DaisyUI
