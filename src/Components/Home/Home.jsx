@@ -6,10 +6,10 @@ const Home = () => {
     fetch("https://dummyjson.com/users")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.users);
         setUsers(data.users);
       });
   }, []);
+  console.log(users);
   return <div></div>;
 };
 
