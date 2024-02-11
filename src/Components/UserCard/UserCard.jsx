@@ -8,14 +8,19 @@ const UserCard = ({ user }) => {
           <img src={user.image} alt="usercard" className="rounded-xl w-48" />
         </figure>
         <div className="card-body ">
+          <p className="text-center text-blue-500 text-2xl mb-4">
+            Username: {user.username}
+          </p>
           <div className="flex">
             <p>First Name: {user.firstName}</p>
             <p>Last Name: {user.lastName}</p>
           </div>
           <p className="">Email: {user.email}</p>
-          <p className="">Address: {user.address.address}, {user.address.city}, {user.address.state}</p>
+          <p className="">
+            Address: {user.address.address}, {user.address.city},{" "}
+            {user.address.state}
+          </p>
           <p>Company Name: {user.company.name}</p>
-          
         </div>
       </div>
     </div>

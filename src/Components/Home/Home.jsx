@@ -13,7 +13,7 @@ const Home = () => {
   console.log(users);
 
   return (
-    <div>
+    <div className="">
       <p className="text-center my-9  text-3xl">User List Interface</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-5 mb-6">
         {users.map((user) => (
