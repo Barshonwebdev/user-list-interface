@@ -16,5 +16,3 @@ Mentionable Features includes-
 - ReactJS
 - TailwindCSS
 - React Router
-- ExpressJS
-- NodeJS
