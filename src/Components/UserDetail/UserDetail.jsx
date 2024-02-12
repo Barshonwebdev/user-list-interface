@@ -6,7 +6,7 @@ const UserDetail = () => {
   return (
     <div>
       <p className="text-center my-9  text-3xl">User Detail</p>
-      <div className=" flex gap-x-24 flex-col md:flex-row md:mx-10 lg:mx-64  bg-base-100 ">
+      <div className=" items-center flex gap-x-24 flex-col md:flex-row md:mx-10 lg:mx-64  bg-base-100 ">
         <div>
           <figure className="flex justify-center">
             <img src={detailData.image} alt="Movie" className="w-fit" />
@@ -15,7 +15,7 @@ const UserDetail = () => {
             Username: {detailData.username}
           </p>
         </div>
-        <div className="card-body text-xl  text-gray-600 ">
+        <div className="card bg-base-100 shadow-xl border-2 p-3 space-y-3 text-xl  text-gray-600 ">
           <p>First Name: {detailData.firstName}</p>
           <p>Last Name: {detailData.lastName}</p>
 
