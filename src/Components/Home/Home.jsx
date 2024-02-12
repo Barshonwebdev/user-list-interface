@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import UserCard from "../UserCard/UserCard";
+import Swal from "sweetalert2";
 
 const Home = () => {
   const [users, setUsers] = useState([]); //state for storing user data from api
@@ -53,6 +54,43 @@ const Home = () => {
     }
   };
 
+  // add user form submission 
+  const handleForm=(e)=>{
+    e.preventDefault();
+    const form=e.target;
+    console.log(form);
+    const url=form.url.value;
+    const username=form.username.value;
+    const firstname=form.firstname.value;
+    const lastname=form.lastname.value;
+    const email=form.email.value;
+    const street=form.street.value;
+    const city=form.city.value;
+    const company=form.company.value;
+
+    const addedNewUser={
+      id:users.length +1 ,
+      image:url,
+      username:username,
+      firstName:firstname,
+      lastName:lastname,
+      email:email,
+      address:{
+        address:street,
+        city:city
+      },
+
+      company:{
+        name:company
+      }
+    }
+
+    let newUserList=[...users,addedNewUser];
+    setFilteredUsers(newUserList);
+    e.target.reset();
+    Swal.fire("New User Added!");
+
+  }
   return (
     <div className="">
       <p className="text-center my-6  text-3xl">User List Interface</p>
@@ -98,7 +136,7 @@ const Home = () => {
 
       {/* Add user form  */}
 
-      <form className="mb-5">
+      <form onSubmit={handleForm} className="mb-5">
         <div className="p-4 md:p-10 mt-10 mx-10 md:mx-36 lg:mx-52 bg-gray-100">
           <div className="border-b border-gray-900/10 pb-12">
             <h3 className="text-center text-2xl font-bold mb-5">
@@ -123,6 +161,26 @@ const Home = () => {
                       id="url"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                       placeholder="link"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="sm:col-span-4">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  User Name
+                </label>
+                <div className="mt-2">
+                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      placeholder="Your Username"
                       required
                     />
                   </div>
@@ -195,16 +253,30 @@ const Home = () => {
                 >
                   Address
                 </label>
-                <div className="mt-2">
-                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                    <input
-                      type="text"
-                      name="address"
-                      id="address"
-                      className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder="Your Address"
-                      required
-                    />
+                <div className="flex space-x-6">
+                  <div className="mt-2">
+                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                      <input
+                        type="text"
+                        name="street"
+                        id="street"
+                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="Street & Suite"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-2">
+                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                      <input
+                        type="text"
+                        name="city"
+                        id="city"
+                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="City"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -230,8 +302,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          
         </div>
 
         <div className="mt-6 flex items-center gap-x-6 justify-center">
