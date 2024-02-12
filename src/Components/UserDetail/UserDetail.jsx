@@ -15,7 +15,7 @@ const UserDetail = () => {
             Username: {detailData.username}
           </p>
         </div>
-        <div className="card bg-base-100 shadow-xl border-2 p-3 space-y-3 text-xl  text-gray-600 ">
+        <div className="card mx-4 bg-base-100 shadow-xl border-2 p-3 space-y-3 text-xl  text-gray-600 ">
           <p>First Name: {detailData.firstName}</p>
           <p>Last Name: {detailData.lastName}</p>
 
