@@ -17,6 +17,7 @@ const Home = () => {
   }, []); //rendering user data
   console.log(users);
 
+  // search functionality 
   const handleSearch = (e) => {
     const searchWord = e.target.value;
     setSearchText(searchWord);
@@ -31,6 +32,7 @@ const Home = () => {
     setFilteredUsers(filtered);
   };
 
+  // sort functionality 
   const handleSort=(e)=>{
     const sortBy=e.target.value;
     setSortCriteria(sortBy);
@@ -54,12 +56,15 @@ const Home = () => {
       setFilteredUsers(users);
     }
   }
+
+  
   return (
     <div className="">
       <p className="text-center my-6  text-3xl">User List Interface</p>
 
-      {/* searchbar */}
       <div className="flex space-y-5 md:space-y-0 my-6 flex-col md:flex-row justify-between items-center">
+
+        {/* searchbar */}
         <div className="mx-7  w-full">
           <div className="form-control">
             <input
@@ -71,20 +76,25 @@ const Home = () => {
             />
           </div>
         </div>
+
+        {/* sort bar  */}
+
         <div className="mx-7 md:mx-7  w-1/2 md:w-1/4 lg:w-1/6">
           <label className="form-control">
-            <select onChange={handleSort} value={sortCriteria} className="select select-bordered">
-              <option selected>
-                Sort (Default)
-              </option>
-              <option value='name'>Sort by Name</option>
-              <option value='email'>Sort by Email</option>
-              <option value='company'>Sort by Company</option>
+            <select
+              onChange={handleSort}
+              value={sortCriteria}
+              className="select select-bordered"
+            >
+              <option selected>Sort (Default)</option>
+              <option value="name">Sort by Name</option>
+              <option value="email">Sort by Email</option>
+              <option value="company">Sort by Company</option>
             </select>
           </label>
         </div>
       </div>
-
+      
       {/* card components  */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-5 mb-6">
         {filteredUsers.map((user) => (
