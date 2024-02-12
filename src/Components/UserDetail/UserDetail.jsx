@@ -1,4 +1,4 @@
-import React from "react";
+// user detail page
 import { Link, useLoaderData } from "react-router-dom";
 
 const UserDetail = () => {
@@ -26,8 +26,10 @@ const UserDetail = () => {
           <p>Company Name: {detailData.company.name}</p>
         </div>
       </div>
+
+      {/* go back to main page button  */}
       <button className="mx-auto block border-2 bg-blue-500 hover:bg-blue-800 text-white px-5 py-2 mt-10 rounded-xl">
-        <Link to="/">Back</Link>
+        <Link to="/">Back</Link> 
       </button>
     </div>
   );

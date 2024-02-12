@@ -1,10 +1,12 @@
+// individual user card component
+
 import { Link } from "react-router-dom";
 import "./UserCard.css";
 
 const UserCard = ({ user }) => {
   return (
     <div>
-      <Link to={`/details/${user.id}`}>
+      <Link to={`/details/${user.id}`}> 
         <div className="card h-full bg-base-100 shadow-xl zoom border">
           <figure className="px-10 pt-10 ">
             <img src={user.image} alt="usercard" className="rounded-xl w-48" />
