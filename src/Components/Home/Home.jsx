@@ -115,7 +115,7 @@ const Home = () => {
           <label className="form-control">
             <select
               onChange={handleSort}
-              value={sortCriteria}
+              value={sortCriteria} 
               className="select select-bordered"
             >
               <option selected>Sort (Default)</option>
@@ -253,7 +253,7 @@ const Home = () => {
                 >
                   Address
                 </label>
-                <div className="flex space-x-6">
+                <div className="flex flex-col md:space-x-6 md:flex-row">
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
