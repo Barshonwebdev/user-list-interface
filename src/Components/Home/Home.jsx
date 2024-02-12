@@ -20,9 +20,9 @@ const Home = () => {
     const searchWord = e.target.value;
     setSearchText(searchWord);
 
-    // filtering
+    // filtering by either firstname or username
     const filtered = users.filter((user) =>
-      user.firstName.toLowerCase().includes(searchWord.toLowerCase())
+      user.firstName.toLowerCase().includes(searchWord.toLowerCase()) || user.username.toLowerCase().includes(searchWord.toLowerCase())
     );
 
     setFilteredUsers(filtered);
