@@ -5,6 +5,7 @@ const Home = () => {
   const [users, setUsers] = useState([]); //state for storing user data from api
   const [searchText, setSearchText] = useState(""); //state for storing the search keyword
   const [filteredUsers, setFilteredUsers] = useState([]); //state for storing the filtered user/users
+  const [sortCriteria,setSortCriteria]=useState('');
 
   useEffect(() => {
     fetch("https://dummyjson.com/users")
@@ -30,6 +31,29 @@ const Home = () => {
     setFilteredUsers(filtered);
   };
 
+  const handleSort=(e)=>{
+    const sortBy=e.target.value;
+    setSortCriteria(sortBy);
+    let data=[...filteredUsers];
+    if(sortBy==='name'){
+      let result=data.sort((a,b)=>a.firstName.localeCompare(b.firstName));
+      setFilteredUsers(result);
+    }
+
+    else if( sortBy==='email'){
+      let result = data.sort((a, b) => a.email.localeCompare(b.email));
+      setFilteredUsers(result);
+    }
+
+    else if (sortBy==='company'){
+      let result = data.sort((a, b) => a.company.name.localeCompare(b.company.name));
+      setFilteredUsers(result);
+    }
+
+    else {
+      setFilteredUsers(users);
+    }
+  }
   return (
     <div className="">
       <p className="text-center my-6  text-3xl">User List Interface</p>
@@ -49,13 +73,13 @@ const Home = () => {
         </div>
         <div className="mx-7 md:mx-7  w-1/2 md:w-1/4 lg:w-1/6">
           <label className="form-control">
-            <select className="select select-bordered">
-              <option selected disabled>
-                Sort
+            <select onChange={handleSort} value={sortCriteria} className="select select-bordered">
+              <option selected>
+                Sort (Default)
               </option>
-              <option>Sort by Name</option>
-              <option>Sort by Email</option>
-              <option>Sort by Company</option>
+              <option value='name'>Sort by Name</option>
+              <option value='email'>Sort by Email</option>
+              <option value='company'>Sort by Company</option>
             </select>
           </label>
         </div>
