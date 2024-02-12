@@ -21,8 +21,10 @@ const Home = () => {
     setSearchText(searchWord);
 
     // filtering by either firstname or username
-    const filtered = users.filter((user) =>
-      user.firstName.toLowerCase().includes(searchWord.toLowerCase()) || user.username.toLowerCase().includes(searchWord.toLowerCase())
+    const filtered = users.filter(
+      (user) =>
+        user.firstName.toLowerCase().includes(searchWord.toLowerCase()) ||
+        user.username.toLowerCase().includes(searchWord.toLowerCase())
     );
 
     setFilteredUsers(filtered);
@@ -33,26 +35,27 @@ const Home = () => {
       <p className="text-center my-6  text-3xl">User List Interface</p>
 
       {/* searchbar */}
-      <div className="flex justify-between items-center">
-        <div className="mx-7 my-5 w-full">
-          <div className="form-control flex">
+      <div className="flex space-y-5 my-4 flex-col md:flex-row justify-between items-center">
+        <div className="mx-7  w-full">
+          <div className="form-control">
             <input
               type="text"
-              placeholder="Search User Here"
-              className="input inline input-bordered md:w-1/4 lg:w-1/5 w-1/2"
+              placeholder="Search User"
+              className="input  input-bordered md:w-1/4 lg:w-1/5 w-fit mx-auto md:mx-0"
               onChange={handleSearch}
               value={searchText}
             />
           </div>
         </div>
-        <div className="mx-7 my-5">
-          <label className="form-control w-full max-w-xs">
+        <div className="mx-7 md:mx-7  w-1/2 md:w-1/6">
+          <label className="form-control">
             <select className="select select-bordered">
-              <option selected disabled>Sort</option>
+              <option selected disabled>
+                Sort
+              </option>
               <option>Sort by Name</option>
               <option>Sort by Email</option>
               <option>Sort by Company</option>
-             
             </select>
           </label>
         </div>
