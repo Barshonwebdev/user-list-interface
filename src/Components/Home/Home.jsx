@@ -35,7 +35,7 @@ const Home = () => {
       <p className="text-center my-6  text-3xl">User List Interface</p>
 
       {/* searchbar */}
-      <div className="flex space-y-5 my-4 flex-col md:flex-row justify-between items-center">
+      <div className="flex space-y-5 md:space-y-0 my-6 flex-col md:flex-row justify-between items-center">
         <div className="mx-7  w-full">
           <div className="form-control">
             <input
@@ -47,7 +47,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="mx-7 md:mx-7  w-1/2 md:w-1/6">
+        <div className="mx-7 md:mx-7  w-1/2 md:w-1/4 lg:w-1/6">
           <label className="form-control">
             <select className="select select-bordered">
               <option selected disabled>
